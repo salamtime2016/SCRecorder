@@ -958,6 +958,11 @@ static char* SCRecorderPhotoOptionsContext = "PhotoOptionsContext";
             videoConnection.videoMirrored = videoMirrored;
         }
     }
+    
+    AVCaptureConnection *connection = [_photoOutput connectionWithMediaType:AVMediaTypeVideo];
+    if (connection.supportsVideoMirroring) {
+        connection.videoMirrored = videoMirrored;
+    }
 }
 
 - (void)configureDevice:(AVCaptureDevice*)newDevice mediaType:(NSString*)mediaType error:(NSError**)error {
