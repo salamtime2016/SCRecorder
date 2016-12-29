@@ -38,7 +38,7 @@
  */
 @property (readonly, nonatomic) SCPhotoConfiguration *__nonnull photoConfiguration;
 
-@property (nonatomic, copy) void(^processVideoFrame)(CMSampleBufferRef);
+@property (atomic, copy) void(^processVideoFrame)(CMSampleBufferRef);
 
 /**
  Return whether the video is enabled and ready to use.
