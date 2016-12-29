@@ -824,6 +824,9 @@ static char* SCRecorderPhotoOptionsContext = "PhotoOptionsContext";
         _lastVideoBuffer.sampleBuffer = sampleBuffer;
 //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
 
+        if (self.processVideoFrame) {
+            self.processVideoFrame(sampleBuffer);
+        }
         if (_videoConfiguration.shouldIgnore) {
             return;
         }
